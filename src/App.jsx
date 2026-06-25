@@ -1,0 +1,516 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Code2, Database, FileSpreadsheet, BarChart2, 
+  Terminal, Globe, Cpu, GitBranch, Github, 
+  Linkedin, Mail, Download, ExternalLink, 
+  Layers, Settings, ShieldCheck, Wrench, Eye, Brain, MapPin, Award, BookOpen, Trophy
+} from 'lucide-react';
+
+export default function App() {
+  const [activeSkillTab, setActiveSkillTab] = useState('All');
+  const [projectTab, setProjectTab] = useState('Academic');
+  const [scrolled, setScrolled] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Updated roles - only relevant target roles
+  const roles = ["Data Analyst", "ML Engineer", "Python Developer", "Computer Vision Engineer", "AI Engineer", "Software Developer"];
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    const currentFullText = roles[currentRoleIndex];
+    if (!isDeleting) {
+      timer = setTimeout(() => {
+        setDisplayedText(currentFullText.slice(0, displayedText.length + 1));
+      }, 80);
+      if (displayedText === currentFullText) {
+        timer = setTimeout(() => setIsDeleting(true), 2200);
+      }
+    } else {
+      timer = setTimeout(() => {
+        setDisplayedText(currentFullText.slice(0, displayedText.length - 1));
+      }, 40);
+      if (displayedText === "") {
+        setIsDeleting(false);
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      }
+    }
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, currentRoleIndex]);
+
+  // Updated skills with correct levels
+  const skills = [
+    { name: 'Python', level: 90, category: 'Programming', icon: <Code2 size={18} /> },
+    { name: 'SQL', level: 85, category: 'Programming', icon: <Database size={18} /> },
+    { name: 'Pandas', level: 88, category: 'Data Analytics', icon: <Database size={18} /> },
+    { name: 'NumPy', level: 85, category: 'Data Analytics', icon: <Terminal size={18} /> },
+    { name: 'Power BI', level: 80, category: 'Data Analytics', icon: <BarChart2 size={18} /> },
+    { name: 'Excel', level: 80, category: 'Data Analytics', icon: <FileSpreadsheet size={18} /> },
+    { name: 'Scikit-Learn', level: 82, category: 'Machine Learning', icon: <Cpu size={18} /> },
+    { name: 'TensorFlow', level: 78, category: 'Machine Learning', icon: <Layers size={18} /> },
+    { name: 'OpenCV', level: 80, category: 'Computer Vision', icon: <Eye size={18} /> },
+    { name: 'MediaPipe', level: 75, category: 'Computer Vision', icon: <Brain size={18} /> },
+    { name: 'Git/GitHub', level: 85, category: 'Tools', icon: <GitBranch size={18} /> },
+    { name: 'Flask', level: 75, category: 'Tools', icon: <Globe size={18} /> },
+    { name: 'VS Code', level: 90, category: 'Tools', icon: <Code2 size={18} /> },
+    { name: 'Jupyter', level: 88, category: 'Tools', icon: <Terminal size={18} /> },
+    { name: 'Linux', level: 65, category: 'Tools', icon: <Wrench size={18} /> },
+  ];
+
+  // Actual projects
+  const academicProjects = [
+    {
+      icon: <Cpu size={18} />,
+      title: "Skin Disease Detection System",
+      desc: "CNN-based skin disease classification system capable of identifying multiple skin conditions from images with high accuracy using deep learning.",
+      tags: ["TensorFlow", "OpenCV", "Flask", "CNN"],
+      github: "#",
+    },
+    {
+      icon: <Eye size={18} />,
+      title: "Computer Vision — Pose Detection",
+      desc: "Real-time human pose detection and feedback system using MediaPipe and OpenCV, providing live skeletal tracking and posture correction guidance.",
+      tags: ["MediaPipe", "OpenCV", "Python"],
+      github: "#",
+    },
+    {
+      icon: <BarChart2 size={18} />,
+      title: "Data Analytics Dashboard",
+      desc: "Interactive Power BI dashboard with SQL-powered data pipelines for KPI reporting, trend analysis, and executive-level business insights.",
+      tags: ["Power BI", "SQL", "DAX"],
+      github: "#",
+    },
+  ];
+
+  const personalProjects = [
+    {
+      icon: <Globe size={18} />,
+      title: "Personal Portfolio Website",
+      desc: "Modern, responsive portfolio website showcasing technical skills, projects, and credentials. Built with React and Tailwind CSS.",
+      tags: ["React", "Tailwind CSS", "Vite"],
+      github: "#",
+    },
+    {
+      icon: <Database size={18} />,
+      title: "Student Management System",
+      desc: "Full-stack CRUD application for managing student records, attendance tracking, grade management, and role-based authentication.",
+      tags: ["React", "Node.js", "PostgreSQL"],
+      github: "#",
+    },
+    {
+      icon: <Brain size={18} />,
+      title: "ML Model Experiments",
+      desc: "Collection of machine learning experiments including classification, regression, and clustering models with performance benchmarking and EDA.",
+      tags: ["Python", "Scikit-Learn", "Pandas"],
+      github: "#",
+    },
+  ];
+
+  // Updated target roles only
+  const rolesOfInterest = [
+    { title: "Data Analyst", icon: <BarChart2 size={20} />, tags: ["SQL", "Python", "Power BI", "Data Visualization", "Statistical Analysis"] },
+    { title: "Junior Data Scientist", icon: <Brain size={20} />, tags: ["Machine Learning", "Python", "Pandas", "Feature Engineering", "EDA"] },
+    { title: "Machine Learning Engineer", icon: <Cpu size={20} />, tags: ["TensorFlow", "Scikit-Learn", "Model Deployment", "Python", "Deep Learning"] },
+    { title: "Computer Vision Engineer", icon: <Eye size={20} />, tags: ["OpenCV", "MediaPipe", "Image Processing", "CNN", "Python"] },
+    { title: "Python Developer", icon: <Code2 size={20} />, tags: ["Python", "Flask", "REST APIs", "OOP", "Data Structures"] },
+    { title: "Software Engineer", icon: <Globe size={20} />, tags: ["DSA", "Problem Solving", "Git", "Full Stack", "Agile"] },
+    { title: "AI Engineer", icon: <Layers size={20} />, tags: ["Deep Learning", "NLP", "Computer Vision", "Model Optimization", "Python"] },
+    { title: "Business Analyst", icon: <FileSpreadsheet size={20} />, tags: ["SQL", "Power BI", "Excel", "KPI Reporting", "Stakeholder Communication"] },
+  ];
+
+  // Certifications
+  const certifications = [
+    { name: "Google Data Analytics Professional Certificate", org: "Google / Coursera", year: "2024", color: "cyan", link: "#" },
+    { name: "IBM Python for Data Science, AI & Development", org: "IBM / Coursera", year: "2024", color: "purple", link: "#" },
+    { name: "NPTEL Project Management", org: "IIT / NPTEL", year: "2023", color: "cyan", link: "#" },
+    { name: "Machine Learning Specialization", org: "DeepLearning.AI / Coursera", year: "2024", color: "purple", link: "#" },
+    { name: "Python for Everybody", org: "University of Michigan", year: "2023", color: "cyan", link: "#" },
+  ];
+
+  // Experience / Training
+  const experiences = [
+    { title: "Academic Projects", org: "B.Tech IT — Final Year", period: "2021–2025", desc: "Developed CNN-based skin disease detection, pose estimation systems, and data analytics dashboards as part of curriculum and self-initiated learning.", icon: <BookOpen size={18} /> },
+    { title: "NPTEL Certification Training", org: "IIT NPTEL", period: "2023", desc: "Completed NPTEL's Project Management course, gaining expertise in software project lifecycle, risk management, and Agile methodologies.", icon: <Award size={18} /> },
+    { title: "Self-Directed Learning", org: "Coursera / Online Platforms", period: "2022–2024", desc: "200+ hours of structured learning across Data Science, Machine Learning, Python, SQL, and Cloud fundamentals via Coursera and other platforms.", icon: <Trophy size={18} /> },
+    { title: "Open Source & Personal Projects", org: "GitHub", period: "2023–Present", desc: "Actively building and maintaining personal projects in ML, Computer Vision, and Data Analytics, with code published on GitHub for community use.", icon: <Github size={18} /> },
+  ];
+
+  const filteredSkills = activeSkillTab === 'All'
+    ? skills
+    : skills.filter(s => s.category === activeSkillTab);
+
+  const activeProjects = projectTab === 'Academic' ? academicProjects : personalProjects;
+
+  return (
+    <div className="min-h-screen bg-var(--background) text-white font-sans overflow-hidden relative selection:bg-cyan-500/20 selection:text-cyan-300">
+      
+      {/* Background Blobs */}
+      <div className="absolute top-20 left-[10%] w-96 h-96 bg-purple-600/10 rounded-full filter blur-[120px] animate-blob pointer-events-none z-0"></div>
+      <div className="absolute top-80 right-[15%] w-80 h-80 bg-cyan-600/10 rounded-full filter blur-[100px] animate-blob pointer-events-none z-0" style={{ animationDelay: '4s' }}></div>
+      <div className="absolute bottom-40 left-[20%] w-96 h-96 bg-blue-600/5 rounded-full filter blur-[140px] animate-blob pointer-events-none z-0" style={{ animationDelay: '8s' }}></div>
+
+      {/* Navbar */}
+      <nav className={`fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center transition-all duration-300 ${
+        scrolled ? 'bg-slate-950/70 backdrop-blur-xl border-b border-white/5 py-3 shadow-elegant' : 'bg-transparent'
+      }`}>
+        <div className="text-lg font-bold tracking-tight text-white hover:text-cyan-400 transition cursor-pointer flex items-center gap-1.5 group">
+          <span className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform"></span>
+          Ankan Majumdar
+        </div>
+        <div className="hidden md:flex gap-6 text-xs font-medium tracking-wide uppercase text-slate-400">
+          {['home', 'about', 'skills', 'projects', 'experience', 'roles', 'contact'].map((item) => (
+            <a key={item} href={`#${item}`} className="hover:text-cyan-400 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-cyan-400 hover:after:w-full after:transition-all transition">{item}</a>
+          ))}
+        </div>
+        <div className="flex items-center gap-2">
+          <a href="#" className="hidden sm:flex items-center gap-1.5 bg-slate-900/60 hover:bg-slate-800 border border-white/5 px-4 py-2 rounded-xl font-medium text-xs text-slate-200 transition-all group">
+            <Download size={13} className="text-cyan-400 group-hover:translate-y-0.5 transition-transform" /> Resume
+          </a>
+          <a href="#contact" className="bg-white hover:bg-cyan-400 hover:text-black hover:scale-105 active:scale-95 text-black font-semibold px-5 py-2 rounded-xl text-xs transition-all shadow-md">
+            Hire Me
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="pt-40 pb-28 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+        <div className="flex-1 space-y-6 text-left">
+          <span className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-300 border border-cyan-400/20 text-xs px-3 py-1.5 rounded-xl font-medium backdrop-blur-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> Available for Opportunities · Immediate Joiner
+          </span>
+          <div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none text-white">
+              Hi, I'm <span className="gradient-text font-black">Ankan Majumdar</span>
+            </h1>
+            <p className="text-slate-400 text-sm font-medium mt-2">Final Year B.Tech (Information Technology)</p>
+            <p className="text-slate-500 text-xs mt-0.5">Data Analyst · Machine Learning Enthusiast · Software Developer</p>
+            <div className="mt-4">
+              <span className="text-slate-400 text-2xl sm:text-3xl font-medium border-r border-cyan-400 pr-1.5 min-h-[40px] animate-blink inline-block">
+                {displayedText}
+              </span>
+            </div>
+          </div>
+          <p className="text-slate-400 max-w-md leading-relaxed text-sm">
+            Passionate about solving real-world problems through data-driven decisions, machine learning, and computer vision.
+          </p>
+          
+          {/* Hero Stats */}
+          <div className="flex flex-wrap gap-4 py-2 border-t border-white/5 pt-4">
+            {[
+              { val: "10+", label: "Technical Projects" },
+              { val: "5+", label: "Certifications" },
+              { val: "200+", label: "Hours Learning" },
+              { val: "Open", label: "To Intern / Fresher" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-lg font-black gradient-text">{stat.val}</div>
+                <div className="text-[10px] text-slate-500 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a href="#" className="flex items-center gap-2 bg-slate-900/60 hover:bg-slate-800 hover:scale-[1.02] border border-white/5 px-5 py-3 rounded-xl font-medium text-xs text-slate-200 transition-all group shadow-sm">
+              <Download size={14} className="text-cyan-400 group-hover:translate-y-0.5 transition-transform" /> Download Resume
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-slate-900/60 hover:bg-slate-800 hover:scale-[1.02] border border-white/5 px-5 py-3 rounded-xl font-medium text-xs text-slate-200 transition-all group shadow-sm">
+              <Github size={14} className="text-cyan-400" /> GitHub
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 hover:scale-[1.02] active:scale-95 text-black px-5 py-3 rounded-xl font-semibold text-xs transition-all shadow-lg shadow-cyan-500/10">
+              <Linkedin size={14} /> LinkedIn
+            </a>
+          </div>
+        </div>
+        
+        {/* Floating Profile Block */}
+        <div className="flex-1 flex justify-center relative animate-float">
+          <div className="w-72 h-72 rounded-full border border-dashed border-cyan-400/20 flex items-center justify-center animate-spin-slow">
+            <div className="w-56 h-56 rounded-full border border-purple-500/10 flex items-center justify-center">
+              <div className="w-44 h-44 rounded-full bg-slate-900/60 border border-white/10 backdrop-blur-md flex flex-col items-center justify-center shadow-elegant animate-pulse-glow">
+                <span className="text-3xl font-black text-cyan-400 tracking-wider">AM</span>
+                <span className="text-[9px] text-slate-500 tracking-widest mt-1 uppercase font-medium">B.Tech IT</span>
+              </div>
+            </div>
+          </div>
+          <span className="absolute right-8 top-12 bg-slate-900/80 border border-white/5 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider text-slate-400 shadow-sm">Fresher</span>
+          <span className="absolute left-8 bottom-12 bg-cyan-950/80 border border-cyan-500/30 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider text-cyan-300 shadow-sm">Open to Work</span>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 border-t border-white/5 px-6 max-w-6xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">About Me</span>
+          <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Who Am I?</h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            "I am a Final Year B.Tech (Information Technology) student with a strong interest in Data Science, Machine Learning, Data Analytics, Computer Vision, and Software Development.",
+            "My experience includes developing machine learning models, data analytics dashboards, web applications, and computer vision projects. I enjoy solving real-world problems through data-driven decision making and continuously expanding my technical skillset.",
+            "I am actively seeking internships, apprenticeships, and entry-level opportunities where I can contribute, learn from industry professionals, and grow into a high-impact technology professional."
+          ].map((text, idx) => (
+            <div key={idx} className="glass-card p-6 relative overflow-hidden group hover:border-cyan-500/30 hover:translate-y-[-4px] transition-all duration-300 shadow-sm">
+              <div className="text-cyan-500/30 group-hover:text-cyan-400 text-2xl font-black mb-3 transition-colors">{idx + 1}</div>
+              <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-24 bg-slate-950/40 border-t border-b border-white/5 px-6 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Skills</span>
+            <h2 className="text-3xl font-bold tracking-tight mt-1 text-white">Technical Proficiency</h2>
+          </div>
+          
+          <div className="flex justify-center flex-wrap gap-2 mb-12">
+            {['All', 'Programming', 'Data Analytics', 'Machine Learning', 'Computer Vision', 'Tools'].map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActiveSkillTab(tab)}
+                className={`px-4 py-2 rounded-xl text-xs font-medium transition-all duration-200 transform active:scale-95 ${
+                  activeSkillTab === tab 
+                    ? 'bg-cyan-500 text-black font-semibold shadow-md shadow-cyan-500/10'
+                    : 'bg-slate-900/60 text-slate-400 border border-white/5 hover:text-white hover:bg-slate-800'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            {filteredSkills.map((skill, index) => (
+              <div key={index} className="glass-card p-4 flex flex-col justify-between hover:border-cyan-400/40 hover:translate-y-[-2px] transition-all group">
+                <div className="text-cyan-400 bg-cyan-950/50 w-9 h-9 rounded-lg flex items-center justify-center mb-5 border border-cyan-500/20 group-hover:scale-110 transition-transform">
+                  {skill.icon}
+                </div>
+                <div>
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-200">{skill.name}</h3>
+                  <div className="w-full bg-slate-800 h-[3px] rounded-full mt-3 overflow-hidden">
+                    <div className="bg-cyan-400 h-[3px] rounded-full transition-all duration-1000 ease-out" style={{ width: `${skill.level}%` }}></div>
+                  </div>
+                  <span className="text-[10px] text-slate-500 mt-2 block font-medium">{skill.level}%</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-24 px-6 max-w-6xl mx-auto relative z-10">
+        <div className="text-center mb-12">
+          <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Projects</span>
+          <h2 className="text-3xl font-bold tracking-tight text-white mt-1">My Work</h2>
+        </div>
+
+        <div className="flex justify-center gap-1 bg-slate-950/60 border border-white/5 p-1 rounded-xl max-w-xs mx-auto mb-12">
+          {[['Academic', 'Academic'], ['Personal', 'Personal']].map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => setProjectTab(key)}
+              className={`flex-1 px-4 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+                projectTab === key
+                  ? 'bg-slate-900 text-cyan-400 shadow-sm border border-white/5'
+                  : 'bg-transparent text-slate-500 hover:text-slate-300'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 transition-all duration-500">
+          {activeProjects.map((proj, idx) => (
+            <div key={idx} className="glass-card p-6 flex flex-col justify-between hover:border-cyan-500/20 hover:translate-y-[-4px] shadow-sm transition-all duration-300 group">
+              <div>
+                <div className="bg-cyan-950/50 border border-cyan-500/20 w-9 h-9 rounded-lg flex items-center justify-center text-cyan-400 mb-5">
+                  {proj.icon}
+                </div>
+                <h3 className="text-base font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{proj.title}</h3>
+                <p className="text-slate-400 text-xs leading-relaxed mb-5">{proj.desc}</p>
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {proj.tags.map(t => (
+                    <span key={t} className="bg-slate-950/80 text-slate-400 text-[10px] px-2 py-0.5 rounded border border-white/5">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <a href={proj.github} className="text-xs font-bold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 self-start transition-all hover:gap-2">
+                <Github size={11} /> View on GitHub <ExternalLink size={11} />
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Experience & Training Section */}
+      <section id="experience" className="py-24 bg-slate-950/30 border-t border-b border-white/5 px-6 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Background</span>
+            <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Experience & Training</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {experiences.map((exp, idx) => (
+              <div key={idx} className="glass-card p-6 hover:border-cyan-500/20 hover:translate-y-[-3px] transition-all duration-300 group">
+                <div className="flex items-start gap-4">
+                  <div className="text-cyan-400 bg-cyan-950/50 w-10 h-10 rounded-lg flex items-center justify-center border border-cyan-500/20 shrink-0 group-hover:scale-110 transition-transform">
+                    {exp.icon}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2 mb-1">
+                      <h4 className="font-bold text-sm text-slate-200 group-hover:text-cyan-400 transition-colors">{exp.title}</h4>
+                      <span className="text-[10px] text-slate-500 border border-white/5 px-2 py-0.5 rounded-lg shrink-0">{exp.period}</span>
+                    </div>
+                    <p className="text-[10px] text-cyan-400/70 font-medium mb-2">{exp.org}</p>
+                    <p className="text-xs text-slate-400 leading-relaxed">{exp.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="py-24 px-6 max-w-6xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Credentials</span>
+          <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Certifications</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {certifications.map((cert, idx) => (
+            <a key={idx} href={cert.link} className="glass-card p-5 flex flex-col gap-3 hover:border-cyan-500/30 hover:translate-y-[-3px] transition-all duration-300 group">
+              <div className="flex items-start gap-3">
+                <div className={`w-9 h-9 rounded-lg flex items-center justify-center border shrink-0 ${
+                  cert.color === 'cyan' 
+                    ? 'bg-cyan-950/50 border-cyan-500/20 text-cyan-400'
+                    : 'bg-purple-950/50 border-purple-500/20 text-purple-400'
+                } group-hover:scale-110 transition-transform`}>
+                  <Award size={16} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-semibold text-xs text-slate-200 leading-tight group-hover:text-cyan-400 transition-colors">{cert.name}</h4>
+                  <p className="text-[10px] text-slate-500 mt-1">{cert.org} · {cert.year}</p>
+                </div>
+              </div>
+              <span className="text-[10px] text-cyan-400 font-medium inline-flex items-center gap-1 self-end">
+                Verify <ExternalLink size={9} />
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Target Roles Section */}
+      <section id="roles" className="py-24 bg-slate-950/20 border-t border-b border-white/5 px-6 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Career Path</span>
+            <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Target Roles</h2>
+            <p className="text-slate-500 text-xs mt-2 max-w-sm mx-auto">Open to internships, apprenticeships, and fresher opportunities in these domains</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {rolesOfInterest.map((role, idx) => (
+              <div key={idx} className="bg-slate-900/20 border border-white/5 p-5 rounded-xl flex flex-col gap-3 hover:bg-slate-900/50 hover:border-cyan-500/20 hover:scale-[1.01] transition-all duration-300 shadow-sm">
+                <div className="text-cyan-400 bg-cyan-950/50 w-10 h-10 rounded-lg flex items-center justify-center border border-cyan-500/20">
+                  {role.icon}
+                </div>
+                <h4 className="font-bold text-sm text-slate-200">{role.title}</h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {role.tags.map((tag, tIdx) => (
+                    <span key={tIdx} className="bg-slate-950/80 text-slate-400 border border-white/5 text-[9px] px-2 py-0.5 rounded-md">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 px-6 max-w-4xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Contact</span>
+          <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Get In Touch</h2>
+          <p className="text-slate-500 text-xs mt-2">Reach out via email, LinkedIn, or GitHub — I respond within 24 hours.</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-3">
+            <a href="mailto:ankanm080@gmail.com" className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-cyan-500/20 transition-all group">
+              <div className="text-cyan-400 bg-cyan-950/50 w-9 h-9 rounded-lg flex items-center justify-center border border-cyan-500/10 group-hover:scale-110 transition-transform"><Mail size={16} /></div>
+              <div>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Email</p>
+                <p className="text-xs text-slate-300">ankanm080@gmail.com</p>
+              </div>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-cyan-500/20 transition-all group">
+              <div className="text-cyan-400 bg-cyan-950/50 w-9 h-9 rounded-lg flex items-center justify-center border border-cyan-500/10 group-hover:scale-110 transition-transform"><Linkedin size={16} /></div>
+              <div>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">LinkedIn</p>
+                <p className="text-xs text-slate-300">linkedin.com/in/ankan-majumdar</p>
+              </div>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer" className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-cyan-500/20 transition-all group">
+              <div className="text-cyan-400 bg-cyan-950/50 w-9 h-9 rounded-lg flex items-center justify-center border border-cyan-500/10 group-hover:scale-110 transition-transform"><Github size={16} /></div>
+              <div>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">GitHub</p>
+                <p className="text-xs text-slate-300">github.com/ankan-majumdar</p>
+              </div>
+            </a>
+            <div className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4">
+              <div className="text-cyan-400 bg-cyan-950/50 w-9 h-9 rounded-lg flex items-center justify-center border border-cyan-500/10"><MapPin size={16} /></div>
+              <div>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Location</p>
+                <p className="text-xs text-slate-300">Kolkata, West Bengal, India</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-slate-900/10 border border-white/5 p-6 sm:p-8 rounded-2xl flex flex-col justify-center items-center text-center gap-5 shadow-sm">
+            <div className="w-16 h-16 rounded-2xl bg-cyan-950/50 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+              <Mail size={28} />
+            </div>
+            <div>
+              <h3 className="text-white font-bold text-lg mb-2">Ready to Collaborate?</h3>
+              <p className="text-slate-400 text-xs leading-relaxed max-w-xs">
+                I'm actively looking for internship and fresher roles in Data Analytics, ML, and Software Development. Let's connect!
+              </p>
+            </div>
+            <a href="mailto:ankanm080@gmail.com" className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs py-3 px-8 rounded-xl transition-all w-full active:scale-[0.99] shadow-md shadow-cyan-500/5 flex items-center justify-center gap-2">
+              <Mail size={14} /> Send Email
+            </a>
+            <a href="#" className="flex items-center gap-2 text-slate-400 hover:text-white text-xs font-medium transition-all">
+              <Download size={13} /> Download My Resume
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/5 py-10 px-6 text-center text-xs text-slate-500 space-y-4 relative z-10">
+        <p>Ankan Majumdar · Final Year B.Tech IT · Data Analyst & ML Enthusiast</p>
+        <p>© 2025 Ankan Majumdar. All rights reserved.</p>
+        <div className="flex justify-center gap-4 text-slate-400">
+          <a href="https://github.com/" target="_blank" rel="noreferrer" className="hover:text-cyan-400 hover:scale-110 transition-all"><Github size={15} /></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="hover:text-cyan-400 hover:scale-110 transition-all"><Linkedin size={15} /></a>
+          <a href="mailto:ankanm080@gmail.com" className="hover:text-cyan-400 hover:scale-110 transition-all"><Mail size={15} /></a>
+        </div>
+      </footer>
+    </div>
+  );
+}
