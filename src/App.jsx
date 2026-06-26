@@ -3,8 +3,9 @@ import {
   Code2, Database, FileSpreadsheet, BarChart2, 
   Terminal, Globe, Cpu, GitBranch, Github, 
   Linkedin, Mail, Download, ExternalLink, 
-  Layers, Settings, ShieldCheck, Wrench, Eye, Brain, MapPin, Award, BookOpen, Trophy
+  Layers, Settings, ShieldCheck, Wrench, Eye, Brain, MapPin, Award, BookOpen, Trophy, TestTube, PieChart, Headset
 } from 'lucide-react';
+import profileImg from './assets/pp3.png';
 
 export default function App() {
   const [activeSkillTab, setActiveSkillTab] = useState('All');
@@ -47,20 +48,19 @@ export default function App() {
 
   // Updated skills with correct levels
   const skills = [
-    { name: 'Python', level: 90, category: 'Programming', icon: <Code2 size={18} /> },
+    { name: 'Python', level: 80, category: 'Programming', icon: <Code2 size={18} /> },
     { name: 'SQL', level: 85, category: 'Programming', icon: <Database size={18} /> },
     { name: 'Pandas', level: 88, category: 'Data Analytics', icon: <Database size={18} /> },
-    { name: 'NumPy', level: 85, category: 'Data Analytics', icon: <Terminal size={18} /> },
+    { name: 'NumPy', level: 80, category: 'Data Analytics', icon: <Terminal size={18} /> },
     { name: 'Power BI', level: 80, category: 'Data Analytics', icon: <BarChart2 size={18} /> },
-    { name: 'Excel', level: 80, category: 'Data Analytics', icon: <FileSpreadsheet size={18} /> },
-    { name: 'Scikit-Learn', level: 82, category: 'Machine Learning', icon: <Cpu size={18} /> },
-    { name: 'TensorFlow', level: 78, category: 'Machine Learning', icon: <Layers size={18} /> },
+    { name: 'Excel', level: 85, category: 'Data Analytics', icon: <FileSpreadsheet size={18} /> },
+    { name: 'Scikit-Learn', level: 70, category: 'Machine Learning', icon: <Cpu size={18} /> },
+    { name: 'TensorFlow', level: 70, category: 'Machine Learning', icon: <Layers size={18} /> },
     { name: 'OpenCV', level: 80, category: 'Computer Vision', icon: <Eye size={18} /> },
-    { name: 'MediaPipe', level: 75, category: 'Computer Vision', icon: <Brain size={18} /> },
     { name: 'Git/GitHub', level: 85, category: 'Tools', icon: <GitBranch size={18} /> },
-    { name: 'Flask', level: 75, category: 'Tools', icon: <Globe size={18} /> },
+    { name: 'FastAPI', level: 70, category: 'Tools', icon: <Globe size={18} /> },
     { name: 'VS Code', level: 90, category: 'Tools', icon: <Code2 size={18} /> },
-    { name: 'Jupyter', level: 88, category: 'Tools', icon: <Terminal size={18} /> },
+    { name: 'Jupyter', level: 90, category: 'Tools', icon: <Terminal size={18} /> },
     { name: 'Linux', level: 65, category: 'Tools', icon: <Wrench size={18} /> },
   ];
 
@@ -70,21 +70,7 @@ export default function App() {
       icon: <Cpu size={18} />,
       title: "Skin Disease Detection System",
       desc: "CNN-based skin disease classification system capable of identifying multiple skin conditions from images with high accuracy using deep learning.",
-      tags: ["TensorFlow", "OpenCV", "Flask", "CNN"],
-      github: "#",
-    },
-    {
-      icon: <Eye size={18} />,
-      title: "Computer Vision — Pose Detection",
-      desc: "Real-time human pose detection and feedback system using MediaPipe and OpenCV, providing live skeletal tracking and posture correction guidance.",
-      tags: ["MediaPipe", "OpenCV", "Python"],
-      github: "#",
-    },
-    {
-      icon: <BarChart2 size={18} />,
-      title: "Data Analytics Dashboard",
-      desc: "Interactive Power BI dashboard with SQL-powered data pipelines for KPI reporting, trend analysis, and executive-level business insights.",
-      tags: ["Power BI", "SQL", "DAX"],
+      tags: ["PyTorch", "OpenCV", "FastAPI", "CNN"],
       github: "#",
     },
   ];
@@ -99,23 +85,27 @@ export default function App() {
     },
     {
       icon: <Database size={18} />,
-      title: "Student Management System",
-      desc: "Full-stack CRUD application for managing student records, attendance tracking, grade management, and role-based authentication.",
-      tags: ["React", "Node.js", "PostgreSQL"],
+      title: "IT Service Desk Analytics Platform",
+      desc: "End-to-end data analyst project featuring automated support ticket generation, a FastAPI backend for issue classification, SQL-driven SLA analysis, and an interactive frontend dashboard.",
+      tags: ["Python", "FastAPI", "SQL", "Pandas", "HTML"],
       github: "#",
     },
     {
       icon: <Brain size={18} />,
-      title: "ML Model Experiments",
-      desc: "Collection of machine learning experiments including classification, regression, and clustering models with performance benchmarking and EDA.",
-      tags: ["Python", "Scikit-Learn", "Pandas"],
+      title: "E-Commerce Transaction Audit Pipeline",
+      desc: "End-to-end data reconciliation system that cross-checks transaction records across web frontends, payment gateways, and internal databases to automatically detect financial discrepancies, dropped webhooks, and revenue leakage.",
+      tags: ["Python", "Pandas", "SQL", "FastAPI", "Pytest"],
       github: "#",
     },
   ];
 
   // Updated target roles only
   const rolesOfInterest = [
+    { title: "QA / Database Tester", icon: <TestTube size={20} />, tags: ["SQL", "Pytest", "Data Reconciliation", "Data Validation", "ETL Testing"]},
+    { title: "BI Developer", icon: <PieChart size={20} />, tags: ["Power BI", "SQL", "Dashboarding", "Data Warehousing", "ETL Pipelines"]},
+    { title: "DBA Trainee", icon: <Database size={20} />, tags: ["PostgreSQL", "MySQL", "Query Optimization", "Database Architecture", "Backup & Recovery"]},
     { title: "Data Analyst", icon: <BarChart2 size={20} />, tags: ["SQL", "Python", "Power BI", "Data Visualization", "Statistical Analysis"] },
+    { title: "Technical Support Engineer", icon: <Headset size={20} />, tags: ["Ticketing Systems", "SLA Management", "ITSM Analytics", "Network Diagnostics", "Hardware Troubleshooting"] },
     { title: "Junior Data Scientist", icon: <Brain size={20} />, tags: ["Machine Learning", "Python", "Pandas", "Feature Engineering", "EDA"] },
     { title: "Machine Learning Engineer", icon: <Cpu size={20} />, tags: ["TensorFlow", "Scikit-Learn", "Model Deployment", "Python", "Deep Learning"] },
     { title: "Computer Vision Engineer", icon: <Eye size={20} />, tags: ["OpenCV", "MediaPipe", "Image Processing", "CNN", "Python"] },
@@ -127,7 +117,7 @@ export default function App() {
 
   // Certifications
   const certifications = [
-    { name: "Google Data Analytics Professional Certificate", org: "Google / Coursera", year: "2024", color: "cyan", link: "#" },
+    { name: "Cloud Financial Management & FinOps: Fundamental and Strategies", org: "Amazon Web Services(AWS)", year: "2025", color: "cyan", link: "#" },
     { name: "IBM Python for Data Science, AI & Development", org: "IBM / Coursera", year: "2024", color: "purple", link: "#" },
     { name: "NPTEL Project Management", org: "IIT / NPTEL", year: "2023", color: "cyan", link: "#" },
     { name: "Machine Learning Specialization", org: "DeepLearning.AI / Coursera", year: "2024", color: "purple", link: "#" },
@@ -136,10 +126,10 @@ export default function App() {
 
   // Experience / Training
   const experiences = [
-    { title: "Academic Projects", org: "B.Tech IT — Final Year", period: "2021–2025", desc: "Developed CNN-based skin disease detection, pose estimation systems, and data analytics dashboards as part of curriculum and self-initiated learning.", icon: <BookOpen size={18} /> },
-    { title: "NPTEL Certification Training", org: "IIT NPTEL", period: "2023", desc: "Completed NPTEL's Project Management course, gaining expertise in software project lifecycle, risk management, and Agile methodologies.", icon: <Award size={18} /> },
-    { title: "Self-Directed Learning", org: "Coursera / Online Platforms", period: "2022–2024", desc: "200+ hours of structured learning across Data Science, Machine Learning, Python, SQL, and Cloud fundamentals via Coursera and other platforms.", icon: <Trophy size={18} /> },
-    { title: "Open Source & Personal Projects", org: "GitHub", period: "2023–Present", desc: "Actively building and maintaining personal projects in ML, Computer Vision, and Data Analytics, with code published on GitHub for community use.", icon: <Github size={18} /> },
+    { title: "Academic Projects", org: "B.Tech IT — Final Year", period: "2024–2026", desc: "Developed CNN-based skin disease detection as part of curriculum and self-initiated learning.", icon: <BookOpen size={18} /> },
+    { title: "NPTEL Certification Training", org: "NPTEL - IIT Roorkee", period: "2025", desc: "Completed NPTEL's Project Management course, gaining expertise in software project lifecycle, risk management, and Agile methodologies.", icon: <Award size={18} /> },
+    { title: "Basics of IT, S&T in Indian Railway", org: "Rail Kaushal Vikas Yojna", period: "2023", desc: "Studied real-world network topologies and IT operations of railway signaling systems to understand large-scale telecom architectures.", icon: <Trophy size={18} /> },
+    { title: "Open Source & Personal Projects", org: "GitHub", period: "2026–Present", desc: "Actively building and maintaining personal projects in 'IT Service Desk Analytics Platform', 'E-Commerce Transaction Audit Pipeline' and Data Analytics, with code published on GitHub for community use.", icon: <Github size={18} /> },
   ];
 
   const filteredSkills = activeSkillTab === 'All'
@@ -187,10 +177,10 @@ export default function App() {
           </span>
           <div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none text-white">
-              Hi, I'm <span className="gradient-text font-black">Ankan Majumdar</span>
+              Hi, I'm <span className="gradient-text font-black">Ankan</span>
             </h1>
             <p className="text-slate-400 text-sm font-medium mt-2">Final Year B.Tech (Information Technology)</p>
-            <p className="text-slate-500 text-xs mt-0.5">Data Analyst · Machine Learning Enthusiast · Software Developer</p>
+            <p className="text-slate-500 text-xs mt-0.5">Service Desk Engineer · QA Tester · DBA Trainee · Data Analyst · Machine Learning Enthusiast · Software Developer</p>
             <div className="mt-4">
               <span className="text-slate-400 text-2xl sm:text-3xl font-medium border-r border-cyan-400 pr-1.5 min-h-[40px] animate-blink inline-block">
                 {displayedText}
@@ -204,7 +194,7 @@ export default function App() {
           {/* Hero Stats */}
           <div className="flex flex-wrap gap-4 py-2 border-t border-white/5 pt-4">
             {[
-              { val: "10+", label: "Technical Projects" },
+              { val: "5+", label: "Technical Projects" },
               { val: "5+", label: "Certifications" },
               { val: "200+", label: "Hours Learning" },
               { val: "Open", label: "To Intern / Fresher" },
@@ -230,19 +220,27 @@ export default function App() {
         </div>
         
         {/* Floating Profile Block */}
-        <div className="flex-1 flex justify-center relative animate-float">
-          <div className="w-72 h-72 rounded-full border border-dashed border-cyan-400/20 flex items-center justify-center animate-spin-slow">
-            <div className="w-56 h-56 rounded-full border border-purple-500/10 flex items-center justify-center">
-              <div className="w-44 h-44 rounded-full bg-slate-900/60 border border-white/10 backdrop-blur-md flex flex-col items-center justify-center shadow-elegant animate-pulse-glow">
-                <span className="text-3xl font-black text-cyan-400 tracking-wider">AM</span>
-                <span className="text-[9px] text-slate-500 tracking-widest mt-1 uppercase font-medium">B.Tech IT</span>
-              </div>
-            </div>
+        <div className="flex-1 flex justify-center items-center relative animate-float min-h-[300px]">
+          
+          {/* Three staggering ripples for a continuous smooth wave */}
+          <div className="absolute w-56 h-56 rounded-full border border-cyan-400/50 animate-smooth-ripple" style={{ animationDelay: '0s' }}></div>
+          <div className="absolute w-56 h-56 rounded-full border border-cyan-400/50 animate-smooth-ripple" style={{ animationDelay: '1.3s' }}></div>
+          <div className="absolute w-56 h-56 rounded-full border border-purple-500/50 animate-smooth-ripple" style={{ animationDelay: '2.6s' }}></div>
+          
+          {/* Inner Photo Container (Static rotation, keeps pulse effect) */}
+          <div className="relative w-44 h-44 rounded-full bg-slate-900/60 border border-white/10 shadow-elegant animate-pulse-glow overflow-hidden z-10">
+            {/* The Image */}
+            <img 
+              src={profileImg} 
+              alt="Ankan Majumdar" 
+              className="w-full h-full object-cover"
+            />
           </div>
-          <span className="absolute right-8 top-12 bg-slate-900/80 border border-white/5 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider text-slate-400 shadow-sm">Fresher</span>
-          <span className="absolute left-8 bottom-12 bg-cyan-950/80 border border-cyan-500/30 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider text-cyan-300 shadow-sm">Open to Work</span>
+
+          {/* Floating Badges */}
+          <span className="absolute right-8 top-12 z-20 bg-slate-900/80 border border-white/5 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider text-slate-400 shadow-sm">Fresher</span>
+          <span className="absolute left-8 bottom-12 z-20 bg-cyan-950/80 border border-cyan-500/30 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider text-cyan-300 shadow-sm">Open to Work</span>
         </div>
-      </section>
 
       {/* About Section */}
       <section id="about" className="py-24 border-t border-white/5 px-6 max-w-6xl mx-auto relative z-10">
@@ -252,8 +250,8 @@ export default function App() {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            "I am a Final Year B.Tech (Information Technology) student with a strong interest in Data Science, Machine Learning, Data Analytics, Computer Vision, and Software Development.",
-            "My experience includes developing machine learning models, data analytics dashboards, web applications, and computer vision projects. I enjoy solving real-world problems through data-driven decision making and continuously expanding my technical skillset.",
+            "I am a Final-Year B.Tech IT student and Data Analyst focused on robust backend development with Python, SQL, and FastAPI.",
+            "Proven ability to build automated data audit pipelines, computer vision systems, and interactive dashboards to solve complex business problems",
             "I am actively seeking internships, apprenticeships, and entry-level opportunities where I can contribute, learn from industry professionals, and grow into a high-impact technology professional."
           ].map((text, idx) => (
             <div key={idx} className="glass-card p-6 relative overflow-hidden group hover:border-cyan-500/30 hover:translate-y-[-4px] transition-all duration-300 shadow-sm">
@@ -458,22 +456,26 @@ export default function App() {
                 <p className="text-xs text-slate-300">ankanm080@gmail.com</p>
               </div>
             </a>
-            <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-cyan-500/20 transition-all group">
+            <a href="https://www.linkedin.com/in/ankan080/" target="_blank" rel="noreferrer" className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-cyan-500/20 transition-all group">
               <div className="text-cyan-400 bg-cyan-950/50 w-9 h-9 rounded-lg flex items-center justify-center border border-cyan-500/10 group-hover:scale-110 transition-transform"><Linkedin size={16} /></div>
               <div>
                 <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">LinkedIn</p>
-                <p className="text-xs text-slate-300">linkedin.com/in/ankan-majumdar</p>
+                <p className="text-xs text-slate-300">linkedin.com/in/ankan080</p>
               </div>
             </a>
-            <a href="https://github.com/" target="_blank" rel="noreferrer" className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-cyan-500/20 transition-all group">
+            <a href="https://github.com/Ankan080" target="_blank" rel="noreferrer" className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4 hover:border-cyan-500/20 transition-all group">
               <div className="text-cyan-400 bg-cyan-950/50 w-9 h-9 rounded-lg flex items-center justify-center border border-cyan-500/10 group-hover:scale-110 transition-transform"><Github size={16} /></div>
               <div>
                 <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">GitHub</p>
-                <p className="text-xs text-slate-300">github.com/ankan-majumdar</p>
+                <p className="text-xs text-slate-300">github.com/Ankan080</p>
               </div>
             </a>
             <div className="bg-slate-900/40 border border-white/5 p-4 rounded-xl flex items-center gap-4">
               <div className="text-cyan-400 bg-cyan-950/50 w-9 h-9 rounded-lg flex items-center justify-center border border-cyan-500/10"><MapPin size={16} /></div>
+              <div>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Contact</p>
+                <p className="text-xs text-slate-300">+91-7439278822 / +91-8697242905</p>
+              </div>
               <div>
                 <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Location</p>
                 <p className="text-xs text-slate-300">Kolkata, West Bengal, India</p>
