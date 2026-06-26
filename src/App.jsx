@@ -241,6 +241,7 @@ export default function App() {
           <span className="absolute right-8 top-12 z-20 bg-slate-900/80 border border-white/5 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider text-slate-400 shadow-sm">Fresher</span>
           <span className="absolute left-8 bottom-12 z-20 bg-cyan-950/80 border border-cyan-500/30 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider text-cyan-300 shadow-sm">Open to Work</span>
         </div>
+      </section>
 
       {/* About Section */}
       <section id="about" className="py-24 border-t border-white/5 px-6 max-w-6xl mx-auto relative z-10">
