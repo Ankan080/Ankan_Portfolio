@@ -208,13 +208,13 @@ export default function App() {
 
           <div className="flex flex-wrap gap-3 pt-2">
             <a href="#" className="flex items-center gap-2 bg-slate-900/60 hover:bg-slate-800 hover:scale-[1.02] border border-white/5 px-5 py-3 rounded-xl font-medium text-xs text-slate-200 transition-all group shadow-sm">
-              <Download size={14} className="text-cyan-400 group-hover:translate-y-0.5 transition-transform" /> Download Resume
+              <Download size={16} className="text-cyan-400 group-hover:translate-y-0.5 transition-transform" /> Download Resume
             </a>
-            <a href="https://github.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-slate-900/60 hover:bg-slate-800 hover:scale-[1.02] border border-white/5 px-5 py-3 rounded-xl font-medium text-xs text-slate-200 transition-all group shadow-sm">
-              <Github size={14} className="text-cyan-400" /> GitHub
+            <a href="https://github.com/Ankan080" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-slate-900/60 hover:bg-slate-800 hover:scale-[1.02] border border-white/5 px-5 py-3 rounded-xl font-medium text-xs text-slate-200 transition-all group shadow-sm">
+              <Github size={16} className="text-cyan-400" /> GitHub
             </a>
-            <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 hover:scale-[1.02] active:scale-95 text-black px-5 py-3 rounded-xl font-semibold text-xs transition-all shadow-lg shadow-cyan-500/10">
-              <Linkedin size={14} /> LinkedIn
+            <a href="https://linkedin.com/ankan080" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 hover:scale-[1.02] active:scale-95 text-black px-5 py-3 rounded-xl font-semibold text-xs transition-all shadow-lg shadow-cyan-500/10">
+              <Linkedin size={16} /> LinkedIn
             </a>
           </div>
         </div>
