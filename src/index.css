@@ -190,6 +190,26 @@
   }
 }
 
+/* --- Add this to your @keyframes section --- */
+@keyframes swipe-horizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- Add this to your @utility section --- */
+@utility animate-swipe {
+  animation: swipe-horizontal 35s linear infinite;
+}
+
+@utility animate-swipe-slow {
+  animation: swipe-horizontal 45s linear infinite;
+}
+
+/* Optional: Pauses the scroll when the user hovers over the cards */
+@utility hover-pause:hover {
+  animation-play-state: paused;
+}
+
 @utility animate-smooth-ripple {
   animation: smooth-ripple 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }

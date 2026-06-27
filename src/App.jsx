@@ -19,7 +19,7 @@ export default function App() {
   }, []);
 
   // Updated roles - only relevant target roles
-  const roles = ["Data Analyst", "ML Engineer", "Python Developer", "Computer Vision Engineer", "AI Engineer", "Software Developer"];
+  const roles = ["Service Desk Engineer", "QA Tester (Manual)", "DBA Trainee", "Data Analyst", "Python Developer", "Machine Learning Enthusiast", "Software Developer"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -117,9 +117,9 @@ export default function App() {
 
   // Certifications
   const certifications = [
-    { name: "Cloud Financial Management & FinOps: Fundamental and Strategies", org: "Amazon Web Services(AWS)", year: "2025", color: "cyan", link: "#" },
-    { name: "IBM Python for Data Science, AI & Development", org: "IBM / Coursera", year: "2024", color: "purple", link: "#" },
-    { name: "NPTEL Project Management", org: "IIT / NPTEL", year: "2023", color: "cyan", link: "#" },
+    { name: "Cloud Financial Management", org: "AWS / EduSkills", year: "2025", color: "cyan", link: "https://aictecert.eduskillsfoundation.org/pages/home/verify.php?cert=784f1e9c258204a6db689d222565a3f4" },
+    { name: "Problem Solving Using Computational Thinking", org: "University of Michigan / Coursera", year: "2023", color: "purple", link: "https://coursera.org/share/b006ad117c1f4ea083b5dd6d5715d291" },
+    { name: "NPTEL Project Management", org: "NPTEL - IIT Roorkee", year: "2024", color: "cyan", link: "https://archive.nptel.ac.in/content/noc/NOC25/SEM1/Ecertificates/110/noc25-mg71/Course/NPTEL25MG71S44950135704733404.pdf" },
     { name: "Machine Learning Specialization", org: "DeepLearning.AI / Coursera", year: "2024", color: "purple", link: "#" },
     { name: "Python for Everybody", org: "University of Michigan", year: "2023", color: "cyan", link: "#" },
   ];
@@ -170,7 +170,7 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-40 pb-28 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+      <section id="home" className="pt-40 pb-12 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
         <div className="flex-1 space-y-6 text-left">
           <span className="inline-flex items-center gap-2 bg-cyan-500/10 text-cyan-300 border border-cyan-400/20 text-xs px-3 py-1.5 rounded-xl font-medium backdrop-blur-md">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> Available for Opportunities · Immediate Joiner
@@ -244,8 +244,8 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 border-t border-white/5 px-6 max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+      <section id="about" className="py-12 border-t border-white/5 px-6 max-w-6xl mx-auto relative z-10">
+        <div className="text-center mb-10">
           <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">About Me</span>
           <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Who Am I?</h2>
         </div>
@@ -264,14 +264,14 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 bg-slate-950/40 border-t border-b border-white/5 px-6 relative z-10">
+      <section id="skills" className="py-12 bg-slate-950/40 border-t border-b border-white/5 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Skills</span>
             <h2 className="text-3xl font-bold tracking-tight mt-1 text-white">Technical Proficiency</h2>
           </div>
           
-          <div className="flex justify-center flex-wrap gap-2 mb-12">
+          <div className="flex justify-center flex-wrap gap-2 mb-10">
             {['All', 'Programming', 'Data Analytics', 'Machine Learning', 'Computer Vision', 'Tools'].map(tab => (
               <button
                 key={tab}
@@ -307,13 +307,13 @@ export default function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 px-6 max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-12">
+      <section id="projects" className="py-12 px-6 max-w-6xl mx-auto relative z-10">
+        <div className="text-center mb-8">
           <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Projects</span>
           <h2 className="text-3xl font-bold tracking-tight text-white mt-1">My Work</h2>
         </div>
 
-        <div className="flex justify-center gap-1 bg-slate-950/60 border border-white/5 p-1 rounded-xl max-w-xs mx-auto mb-12">
+        <div className="flex justify-center gap-1 bg-slate-950/60 border border-white/5 p-1 rounded-xl max-w-xs mx-auto mb-10">
           {[['Academic', 'Academic'], ['Personal', 'Personal']].map(([key, label]) => (
             <button
               key={key}
@@ -353,9 +353,9 @@ export default function App() {
       </section>
 
       {/* Experience & Training Section */}
-      <section id="experience" className="py-24 bg-slate-950/30 border-t border-b border-white/5 px-6 relative z-10">
+      <section id="experience" className="py-12 bg-slate-950/30 border-t border-b border-white/5 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Background</span>
             <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Experience & Training</h2>
           </div>
@@ -382,67 +382,74 @@ export default function App() {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-24 px-6 max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+      <section id="certifications" className="py-12 px-6 max-w-6xl mx-auto relative z-10 overflow-hidden">
+        <div className="text-center mb-10">
           <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Credentials</span>
           <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Certifications</h2>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {certifications.map((cert, idx) => (
-            <a key={idx} href={cert.link} className="glass-card p-5 flex flex-col gap-3 hover:border-cyan-500/30 hover:translate-y-[-3px] transition-all duration-300 group">
-              <div className="flex items-start gap-3">
-                <div className={`w-9 h-9 rounded-lg flex items-center justify-center border shrink-0 ${
-                  cert.color === 'cyan' 
-                    ? 'bg-cyan-950/50 border-cyan-500/20 text-cyan-400'
-                    : 'bg-purple-950/50 border-purple-500/20 text-purple-400'
-                } group-hover:scale-110 transition-transform`}>
-                  <Award size={16} />
+        
+        {/* Scrolling Wrapper */}
+        <div className="relative flex overflow-hidden group">
+          <div className="flex flex-nowrap gap-4 w-max animate-swipe hover-pause">
+            {[...certifications, ...certifications].map((cert, idx) => (
+              <a key={idx} href={cert.link} className="glass-card w-[320px] p-5 flex flex-col gap-3 hover:border-cyan-500/30 hover:translate-y-[-3px] transition-all duration-300 group shrink-0">
+                <div className="flex items-start gap-3">
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center border shrink-0 ${
+                    cert.color === 'cyan' 
+                      ? 'bg-cyan-950/50 border-cyan-500/20 text-cyan-400'
+                      : 'bg-purple-950/50 border-purple-500/20 text-purple-400'
+                  } group-hover:scale-110 transition-transform`}>
+                    <Award size={16} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-xs text-slate-200 leading-tight group-hover:text-cyan-400 transition-colors">{cert.name}</h4>
+                    <p className="text-[10px] text-slate-500 mt-1">{cert.org} · {cert.year}</p>
+                  </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-xs text-slate-200 leading-tight group-hover:text-cyan-400 transition-colors">{cert.name}</h4>
-                  <p className="text-[10px] text-slate-500 mt-1">{cert.org} · {cert.year}</p>
-                </div>
-              </div>
-              <span className="text-[10px] text-cyan-400 font-medium inline-flex items-center gap-1 self-end">
-                Verify <ExternalLink size={9} />
-              </span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* Target Roles Section */}
-      <section id="roles" className="py-24 bg-slate-950/20 border-t border-b border-white/5 px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Career Path</span>
-            <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Target Roles</h2>
-            <p className="text-slate-500 text-xs mt-2 max-w-sm mx-auto">Open to internships, apprenticeships, and fresher opportunities in these domains</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {rolesOfInterest.map((role, idx) => (
-              <div key={idx} className="bg-slate-900/20 border border-white/5 p-5 rounded-xl flex flex-col gap-3 hover:bg-slate-900/50 hover:border-cyan-500/20 hover:scale-[1.01] transition-all duration-300 shadow-sm">
-                <div className="text-cyan-400 bg-cyan-950/50 w-10 h-10 rounded-lg flex items-center justify-center border border-cyan-500/20">
-                  {role.icon}
-                </div>
-                <h4 className="font-bold text-sm text-slate-200">{role.title}</h4>
-                <div className="flex flex-wrap gap-1.5">
-                  {role.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className="bg-slate-950/80 text-slate-400 border border-white/5 text-[9px] px-2 py-0.5 rounded-md">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                <span className="text-[10px] text-cyan-400 font-medium inline-flex items-center gap-1 self-end">
+                  Verify <ExternalLink size={9} />
+                </span>
+              </a>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Target Roles Section */}
+      <section id="roles" className="py-12 bg-slate-950/20 border-t border-b border-white/5 px-6 relative z-10 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Career Path</span>
+            <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Target Roles</h2>
+            <p className="text-slate-500 text-xs mt-2 max-w-sm mx-auto">Open to internships, apprenticeships, and fresher opportunities in these domains</p>
+          </div>
+
+          {/* Scrolling Wrapper */}
+          <div className="relative flex overflow-hidden group">
+            <div className="flex flex-nowrap gap-4 w-max animate-swipe-slow hover-pause">
+              {[...rolesOfInterest, ...rolesOfInterest].map((role, idx) => (
+                <div key={idx} className="bg-slate-900/20 border border-white/5 w-[280px] p-5 rounded-xl flex flex-col gap-3 hover:bg-slate-900/50 hover:border-cyan-500/20 hover:scale-[1.01] transition-all duration-300 shadow-sm shrink-0">
+                  <div className="text-cyan-400 bg-cyan-950/50 w-10 h-10 rounded-lg flex items-center justify-center border border-cyan-500/20">
+                    {role.icon}
+                  </div>
+                  <h4 className="font-bold text-sm text-slate-200">{role.title}</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {role.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="bg-slate-950/80 text-slate-400 border border-white/5 text-[9px] px-2 py-0.5 rounded-md">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 max-w-4xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+      <section id="contact" className="py-12 px-6 max-w-4xl mx-auto relative z-10">
+        <div className="text-center mb-10">
           <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest">Contact</span>
           <h2 className="text-3xl font-bold tracking-tight text-white mt-1">Get In Touch</h2>
           <p className="text-slate-500 text-xs mt-2">Reach out via email, LinkedIn, or GitHub — I respond within 24 hours.</p>
