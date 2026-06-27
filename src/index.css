@@ -206,7 +206,8 @@
 }
 
 /* Optional: Pauses the scroll when the user hovers over the cards */
-@utility hover-pause:hover {
+/* Standard CSS works perfectly for this */
+.hover-pause:hover {
   animation-play-state: paused;
 }
 
