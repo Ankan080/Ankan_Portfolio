@@ -19,7 +19,7 @@ export default function App() {
   }, []);
 
   // Updated roles - only relevant target roles
-  const roles = ["Service Desk Engineer", "QA Tester (Manual)", "DBA Trainee", "Data Analyst", "Python Developer", "Machine Learning Enthusiast", "Software Developer"];
+  const roles = ["Data Analyst", "Business Intelligence (BI) Analyst", "Reporting Analyst", "Data Analyst Associate", "MIS Analyst", "Business Analyst", "Operations Analyst", "Marketing Analyst"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -101,19 +101,19 @@ export default function App() {
 
   // Updated target roles only
   const rolesOfInterest = [
-    { title: "QA / Database Tester", icon: <TestTube size={20} />, tags: ["SQL", "Pytest", "Data Reconciliation", "Data Validation", "ETL Testing"]},
-    { title: "BI Developer", icon: <PieChart size={20} />, tags: ["Power BI", "SQL", "Dashboarding", "Data Warehousing", "ETL Pipelines"]},
-    { title: "DBA Trainee", icon: <Database size={20} />, tags: ["PostgreSQL", "MySQL", "Query Optimization", "Database Architecture", "Backup & Recovery"]},
-    { title: "Data Analyst", icon: <BarChart2 size={20} />, tags: ["SQL", "Python", "Power BI", "Data Visualization", "Statistical Analysis"] },
-    { title: "Technical Support Engineer", icon: <Headset size={20} />, tags: ["Ticketing Systems", "SLA Management", "ITSM Analytics", "Network Diagnostics", "Hardware Troubleshooting"] },
-    { title: "Junior Data Scientist", icon: <Brain size={20} />, tags: ["Machine Learning", "Python", "Pandas", "Feature Engineering", "EDA"] },
-    { title: "Machine Learning Engineer", icon: <Cpu size={20} />, tags: ["TensorFlow", "Scikit-Learn", "Model Deployment", "Python", "Deep Learning"] },
-    { title: "Computer Vision Engineer", icon: <Eye size={20} />, tags: ["OpenCV", "MediaPipe", "Image Processing", "CNN", "Python"] },
-    { title: "Python Developer", icon: <Code2 size={20} />, tags: ["Python", "Flask", "REST APIs", "OOP", "Data Structures"] },
-    { title: "Software Engineer", icon: <Globe size={20} />, tags: ["DSA", "Problem Solving", "Git", "Full Stack", "Agile"] },
-    { title: "AI Engineer", icon: <Layers size={20} />, tags: ["Deep Learning", "NLP", "Computer Vision", "Model Optimization", "Python"] },
-    { title: "Business Analyst", icon: <FileSpreadsheet size={20} />, tags: ["SQL", "Power BI", "Excel", "KPI Reporting", "Stakeholder Communication"] },
-  ];
+  {title: "Data Analyst", icon: <BarChart2 size={20} />, tags: ["SQL", "Python", "Excel", "Power BI", "Data Visualization"],},
+  {title: "BI Analyst", icon: <PieChart size={20} />, tags: ["Power BI", "SQL", "DAX", "Dashboard Development", "Data Warehousing"],},
+  {title: "Business Analyst", icon: <FileSpreadsheet size={20} />, tags: ["SQL", "Excel", "Power BI", "KPI Reporting", "Stakeholder Communication"],},
+  {title: "Reporting Analyst", icon: <FileSpreadsheet size={20} />, tags: ["SQL", "Excel", "Power BI", "Report Automation", "Dashboarding"],},
+  {title: "MIS Analyst", icon: <Database size={20} />, tags: ["Advanced Excel", "SQL", "Power BI", "MIS Reporting", "Data Management"],},
+  {title: "Data Analytics Associate", icon: <BarChart2 size={20} />, tags: ["SQL", "Python", "Power BI", "EDA", "Statistical Analysis"],},
+  {title: "Operations Analyst", icon: <Activity size={20} />, tags: ["SQL", "Excel", "Power BI", "Process Optimization", "Performance Analysis"],},
+  {title: "Marketing Analyst", icon: <TrendingUp size={20} />, tags: ["SQL", "Excel", "Google Analytics", "Power BI", "Campaign Analysis"],},
+  {title: "Financial Data Analyst", icon: <DollarSign size={20} />, tags: ["Excel", "SQL", "Power BI", "Financial Reporting", "Forecasting"],},
+  {title: "Product Analyst", icon: <Package size={20} />, tags: ["SQL", "Python", "A/B Testing", "Product Metrics", "User Analytics"],},
+  {title: "Junior Data Scientist", icon: <Brain size={20} />, tags: ["Python", "Machine Learning", "Pandas", "Scikit-learn", "EDA"],},
+  {title: "DBA Trainee", icon: <Database size={20} />, tags: ["MySQL", "PostgreSQL", "Query Optimization", "Database Design", "Backup & Recovery"],},
+];
 
   // Certifications
   const certifications = [
