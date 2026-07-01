@@ -3,7 +3,7 @@ import {
   Code2, Database, FileSpreadsheet, BarChart2, 
   Terminal, Globe, Cpu, GitBranch, Github, 
   Linkedin, Mail, Download, ExternalLink, 
-  Layers, Settings, ShieldCheck, Wrench, Eye, Brain, MapPin, Award, BookOpen, Trophy, TestTube, PieChart, Headset
+  Layers, Settings, ShieldCheck, Wrench, Eye, Brain, MapPin, Award, BookOpen, Trophy, TestTube, PieChart, Headset, Activity, TrendingUp, DollarSign, Package
 } from 'lucide-react';
 import profileImg from './assets/pp3.png';
 
@@ -139,7 +139,8 @@ export default function App() {
   const activeProjects = projectTab === 'Academic' ? academicProjects : personalProjects;
 
   return (
-    <div className="min-h-screen bg-var(--background) text-white font-sans overflow-hidden relative selection:bg-cyan-500/20 selection:text-cyan-300">
+    // Line 70 (Fixed version):
+<div className="min-h-screen bg-[var(--background)] text-white font-sans overflow-hidden relative selection:bg-cyan-500/20 selection:text-cyan-300">
       
       {/* Background Blobs */}
       <div className="absolute top-20 left-[10%] w-96 h-96 bg-purple-600/10 rounded-full filter blur-[120px] animate-blob pointer-events-none z-0"></div>
